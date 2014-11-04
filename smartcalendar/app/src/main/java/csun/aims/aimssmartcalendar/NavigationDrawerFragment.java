@@ -103,7 +103,6 @@ public class NavigationDrawerFragment extends Fragment {
                 android.R.id.text1,
                 new String[]{
                         getString(R.string.calendar_view),
-                        getString(R.string.add_schedule),
                         getString(R.string.add_grade),
                         getString(R.string.add_assignment)
                 }));
