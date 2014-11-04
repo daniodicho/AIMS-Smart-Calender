@@ -67,6 +67,12 @@ public class Main extends Activity
             case 3:
                 mTitle = getString(R.string.add_grade);
                 break;
+            case 4:
+                mTitle = getString(R.string.add_schedule);
+                break;
+            case 5:
+                mTitle = getString(R.string.about);
+                break;
         }
     }
 

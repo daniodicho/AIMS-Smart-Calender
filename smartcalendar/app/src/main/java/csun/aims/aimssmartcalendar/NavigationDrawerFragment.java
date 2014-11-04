@@ -104,7 +104,9 @@ public class NavigationDrawerFragment extends Fragment {
                 new String[]{
                         getString(R.string.calendar_view),
                         getString(R.string.add_grade),
-                        getString(R.string.add_assignment)
+                        getString(R.string.add_assignment),
+                        getString(R.string.add_schedule),
+                        getString(R.string.about)
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
@@ -247,7 +249,7 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
+        if (item.getItemId() == R.id.action_settings) {
             Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
             return true;
         }
