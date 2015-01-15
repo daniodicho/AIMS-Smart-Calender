@@ -1,0 +1,75 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:weightSum="1"
+    tools:context="csun.aims.aimssmartcalendar.Main$PlaceholderFragment">
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Class:"
+        android:id="@+id/textView3"
+        android:layout_gravity="center_horizontal" />
+
+    <ScrollView
+        android:layout_width="144dp"
+        android:layout_height="39dp"
+        android:id="@+id/scrollView2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Type"
+        android:id="@+id/textView5" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Homework"
+        android:id="@+id/radioButton"
+        android:layout_gravity="center_horizontal"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test           "
+        android:id="@+id/radioButton3"
+        android:layout_gravity="center_horizontal"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Time:"
+        android:id="@+id/textView4" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

@@ -5,9 +5,11 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +19,9 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 
 
 public class Main extends Activity
@@ -32,11 +37,32 @@ public class Main extends Activity
      */
     private CharSequence mTitle;
 
+    FragmentManager fm;
+    MonthViewFragment monthfrag;
+    DayViewFragment dayfrag;
+    AssignmentFragment assignmentfrag;
+    AboutFragment aboutfrag;
+    ScheduleFragment schedulefrag;
+    ClassesFragment classfrag;
+    String monthID;
+    String dayID;
+    String aboutID;
+    String scheduleID;
+    String assignmentID;
+    String classesID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        monthfrag = new MonthViewFragment();
+        dayfrag = new DayViewFragment();
+        aboutfrag = new AboutFragment();
+        assignmentfrag = new AssignmentFragment();
+        schedulefrag = new ScheduleFragment();
+        classfrag = new ClassesFragment();
+        fm =  getFragmentManager();
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -57,23 +83,39 @@ public class Main extends Activity
     }
 
     public void onSectionAttached(int number) {
+        FragmentTransaction ft = fm.beginTransaction();
         switch (number) {
             case 1:
                 mTitle = getString(R.string.calendar_view);
+                ft.replace(R.id.container, dayfrag, dayID);
                 break;
             case 2:
-                mTitle = getString(R.string.add_assignment);
+                mTitle = "Month View";
+                ft.replace(R.id.container,monthfrag,monthID);
                 break;
             case 3:
-                mTitle = getString(R.string.add_grade);
+                mTitle = "Add Assignment";
+                ft.replace(R.id.container,assignmentfrag,assignmentID);
+
                 break;
             case 4:
-                mTitle = getString(R.string.add_schedule);
+                mTitle = "My Classes";
+                ft.replace(R.id.container,classfrag,classesID);
+
                 break;
             case 5:
+                mTitle = getString(R.string.add_schedule);
+                ft.replace(R.id.container,schedulefrag,scheduleID);
+
+                break;
+            case 6:
                 mTitle = getString(R.string.about);
+                ft.replace(R.id.container,aboutfrag,aboutID);
+
                 break;
         }
+        ft.commit();
+
     }
 
     public void restoreActionBar() {
