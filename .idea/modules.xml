@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/AIMS-Smart-Calender.iml" filepath="$PROJECT_DIR$/.idea/AIMS-Smart-Calender.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/AIMS-Smart-Calender.iml" filepath="$PROJECT_DIR$/AIMS-Smart-Calender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AIMS-Smart-Calender.iml" filepath="$PROJECT_DIR$/AIMS-Smart-Calender.iml" />
+>>>>>>> origin/master
     </modules>
   </component>
 </project>

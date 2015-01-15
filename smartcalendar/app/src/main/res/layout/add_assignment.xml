@@ -1,12 +1,21 @@
+<<<<<<< HEAD
+=======
+<?xml version="1.0" encoding="utf-8"?>
+>>>>>>> origin/master
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:tools="http://schemas.android.com/tools"
     android:weightSum="1"
     tools:context="csun.aims.aimssmartcalendar.Main$PlaceholderFragment">
     >
+=======
+    android:id="@+id/"
+    android:weightSum="1">
+>>>>>>> origin/master
 
     <TextView
         android:layout_width="wrap_content"
