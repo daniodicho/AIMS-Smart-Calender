@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
+
 
 
 public class Main extends Activity
@@ -28,7 +28,7 @@ public class Main extends Activity
      */
     private CharSequence mTitle;
 
-    CalendarView calendar;
+
     FragmentManager fm;
     MonthViewFragment monthfrag;
     DayViewFragment dayfrag;
@@ -75,6 +75,7 @@ public class Main extends Activity
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
     }
+
 
     public void onSectionAttached(int number) {
         FragmentTransaction ft = fm.beginTransaction();
