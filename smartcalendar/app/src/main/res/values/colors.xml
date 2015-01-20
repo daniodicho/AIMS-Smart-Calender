@@ -2,7 +2,9 @@
 <resources>
     <color name="red">#FF0000</color>
     <item name="transparent" type="color">#00FFFFFF</item>
+    <color name="white">#FFFF</color>
     <item name="grey" type="color">#555555</item>
     <item name="green" type="color">#4499CC00</item>
     <item name="darkgreen" type="color">#FF669900</item>
+
 </resources>

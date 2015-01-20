@@ -21,6 +21,8 @@ android {
 }
 
 dependencies {
+    compile 'com.github.alamkanak:android-week-view:1.2.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:21.0.0'
+    compile files('libs/guava-18.0.jar')
 }
