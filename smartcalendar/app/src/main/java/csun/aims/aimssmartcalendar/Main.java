@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -28,6 +29,8 @@ public class Main extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks, WeekView.MonthChangeListener,
         WeekView.EventClickListener, WeekView.EventLongPressListener{
 
+    public static String packageName;
+    public static Context baseContext;
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -61,6 +64,9 @@ public class Main extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        packageName = getPackageName();
+        baseContext = getBaseContext();
 
         monthfrag = new MonthViewFragment();
         dayfrag = new DayViewFragment();
