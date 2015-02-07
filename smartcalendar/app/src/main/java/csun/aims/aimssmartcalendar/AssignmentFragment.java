@@ -1,6 +1,5 @@
 package csun.aims.aimssmartcalendar;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -28,9 +27,11 @@ public class AssignmentFragment extends Fragment {
     DataManager db;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v= inflater.inflate(R.layout.add_assignment, container, false);
         db = new DataManager(getActivity());
-        Button add = (Button)getActivity().findViewById(R.id.add);
-/*        add.setOnClickListener(new View.OnClickListener(){
+        Button add = (Button)v.findViewById(R.id.add);
+
+           add.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Cursor c = db.getAssignment(0);
@@ -38,7 +39,7 @@ public class AssignmentFragment extends Fragment {
                 displayAssignment(c);
             }
         });
-        */// Toast.makeText(getActivity().getApplicationContext(),add.getText(),Toast.LENGTH_LONG);
+        Toast.makeText(getActivity().getApplicationContext(),add.getText(),Toast.LENGTH_LONG);
 
         try {
             String destPath = "/data/data/" + Main.packageName +"/databases/AssignmentDB";
@@ -52,7 +53,7 @@ public class AssignmentFragment extends Fragment {
             } catch (IOException e) {
             e.printStackTrace();
             }
-        return inflater.inflate(R.layout.add_assignment,container,false);
+        return v;
     }
 
     public void addAssignment(View v){
