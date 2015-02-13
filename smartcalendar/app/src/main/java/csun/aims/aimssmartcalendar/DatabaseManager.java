@@ -56,9 +56,15 @@ public class DatabaseManager{
 
             db.execSQL(DATABASE_DROP);
             onCreate(db);
-            Log.d(LOGCAT,"ASSIGNMENTS CHANGED");
+            Log.d(LOGCAT,"ASSIGNMENTS UPGRADED");
         }
 
+        @Override
+        public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
+            db.execSQL(DATABASE_DROP);
+            onCreate(db);
+            Log.d(LOGCAT,"ASSIGNMENTS DOWNGRADED");
+        }
 
 
 //        //---opens the database---
