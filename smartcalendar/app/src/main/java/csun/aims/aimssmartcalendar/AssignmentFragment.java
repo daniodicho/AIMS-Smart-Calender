@@ -65,7 +65,6 @@ public class AssignmentFragment extends Fragment {
         RadioButton hw = (RadioButton)getActivity().findViewById(R.id.homeworkRB);
         RadioButton test = (RadioButton)getActivity().findViewById(R.id.testRB);
         String type="";
-        String notes="";
         if(hw.isChecked())
             type = "Homework";
         if(test.isChecked())
@@ -76,7 +75,7 @@ public class AssignmentFragment extends Fragment {
         String strDate = dp.getYear() + "-" + (dp.getMonth() + 1) + "-" + dp.getDayOfMonth();
         String strTime = tp.getCurrentHour() + ":" + tp.getCurrentMinute();
 
-        long id = db.insertAssignment(name.getText().toString(), strDate, strTime, "Math", notes, type);
+        long id = db.insertAssignment(name.getText().toString(), strDate, strTime, "Math", false, type);
         if(id<0){
             Log.d(LOGCAT, "ROWS NOT INSERTED");
         }

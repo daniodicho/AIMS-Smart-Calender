@@ -28,14 +28,22 @@ public class DatabaseManager{
         public static final String KEY_DUEDATE = "DDate";
         public static final String KEY_DUETIME = "DTime";
         public static final String KEY_COURSE = "Course";
-        public static final String KEY_NOTES = "Notes";
+        public static final String KEY_DONE = "Done";
         public static final String KEY_TYPE = "Type";
+        public static final String KEY_READING = "Reading";
+        public static final String KEY_STARTTIME = "STime";
+        public static final String KEY_ENDTIME = "ETime";
+        public static final String KEY_UNITS = "Units";
+        public static final String KEY_DIFFICULTY = "Difficulty";
+
         private static final String DATABASE_NAME = "StudentData";
         private static final String ASSIGNMENTS_TABLE = "Assignments";
         private static final String CLASSES_TABLE = "Classes";
         private static final int DATABASE_VERSION = 1;
         private Context context;
-        private static final String DATABASE_CREATE = "CREATE TABLE "+ASSIGNMENTS_TABLE+" ("+KEY_ROWID+" integer primary key autoincrement, "+KEY_TITLE+" VARCHAR(255) not null, "+KEY_DUEDATE+" VARCHAR(255), "+KEY_DUETIME+" VARCHAR(255), "+KEY_COURSE+" VARCHAR(255),  "+KEY_NOTES+" VARCHAR(255), "+KEY_TYPE+" VARCHAR(255) );";
+        private static final String DATABASE_CREATE = "CREATE TABLE "+ASSIGNMENTS_TABLE+" ("+KEY_ROWID+" integer primary key autoincrement, "+KEY_TITLE+" VARCHAR(255) not null, "+KEY_DUEDATE+" VARCHAR(255), "+KEY_DUETIME+" VARCHAR(255), "+KEY_COURSE+" VARCHAR(255),  "+KEY_DONE+" BOOL, "+KEY_TYPE+" VARCHAR(255) );";
+        private static final String DATABASE_CREATE2 = "CREATE TABLE "+CLASSES_TABLE+" ("+KEY_ROWID+" integer primary key autoincrement, "+KEY_TITLE+" VARCHAR(255) not null, "+KEY_STARTTIME+" VARCHAR(255), "+KEY_ENDTIME+" VARCHAR(255), "+KEY_DIFFICULTY+" integer,  "+KEY_UNITS+" integer, "+KEY_READING+" BOOL );";
+
         private static final String DATABASE_DROP = "DROP TABLE IF EXISTS " +ASSIGNMENTS_TABLE;
 
         public DatabaseHelper(Context context) {
@@ -115,16 +123,30 @@ public class DatabaseManager{
     }
 
     //---insert a record into the database---
-    public long insertAssignment(String title, String duedate, String time, String course, String notes, String type) {
+    public long insertAssignment(String title, String duedate, String time, String course, boolean notes, String type) {
         SQLiteDatabase db = DBhelper.getWritableDatabase();
         ContentValues initialValues = new ContentValues();
         initialValues.put(DBhelper.KEY_TITLE, title);
         initialValues.put(DBhelper.KEY_DUEDATE, duedate);
         initialValues.put(DBhelper.KEY_DUETIME, time);
         initialValues.put(DBhelper.KEY_COURSE, course);
-        initialValues.put(DBhelper.KEY_NOTES, notes);
+        initialValues.put(DBhelper.KEY_DONE, notes);
         initialValues.put(DBhelper.KEY_TYPE, type);
         long id = db.insert(DBhelper.ASSIGNMENTS_TABLE, null, initialValues);
+        return id;
+    }
+
+    //---insert a record into the database---
+    public long insertClass(String title, String startTime, String endTime, int difficulty, int units, boolean reading) {
+        SQLiteDatabase db = DBhelper.getWritableDatabase();
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(DBhelper.KEY_TITLE, title);
+        initialValues.put(DBhelper.KEY_STARTTIME, startTime);
+        initialValues.put(DBhelper.KEY_ENDTIME, endTime);
+        initialValues.put(DBhelper.KEY_DIFFICULTY, difficulty);
+        initialValues.put(DBhelper.KEY_UNITS, units);
+        initialValues.put(DBhelper.KEY_READING, reading);
+        long id = db.insert(DBhelper.CLASSES_TABLE, null, initialValues);
         return id;
     }
 
