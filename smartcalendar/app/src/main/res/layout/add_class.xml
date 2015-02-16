@@ -42,6 +42,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/difficultySpinner" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Units:"
+            android:id="@+id/textView4"
+            android:layout_gravity="center_horizontal" />
+
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/unitSpinner" />
+
 
 
         <TextView
@@ -49,7 +63,15 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Start Time:"
-            android:id="@+id/textView4" />
+            android:id="@+id/textView5" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="requiresReading"
+            android:id="@+id/requiresReading"
+            android:layout_gravity="center_horizontal"
+            android:checked="false" />
 
         <TimePicker
             android:layout_width="wrap_content"
@@ -62,7 +84,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="End Time:"
-            android:id="@+id/textView5" />
+            android:id="@+id/textView6" />
 
         <TimePicker
             android:layout_width="wrap_content"
@@ -70,11 +92,6 @@
             android:id="@+id/classEndTime"
             android:layout_gravity="center_horizontal" />
 
-        <DatePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/datePicker"
-            android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="wrap_content"

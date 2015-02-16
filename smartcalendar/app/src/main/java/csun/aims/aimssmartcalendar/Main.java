@@ -46,19 +46,21 @@ public class Main extends Activity
     private int mWeekViewType = TYPE_DAY_VIEW;
     WeekView mWeekView;
 
-    FragmentManager fm;
+    public static FragmentManager fm;
     MonthViewFragment monthfrag;
     DayViewFragment dayfrag;
     AssignmentFragment assignmentfrag;
     AboutFragment aboutfrag;
     ScheduleFragment schedulefrag;
     ClassesFragment classfrag;
+    ViewCalssesFragment viewclassfrag;
     String monthID;
     String dayID;
     String aboutID;
     String scheduleID;
     String assignmentID;
     String classesID;
+    String viewclassID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,7 @@ public class Main extends Activity
         baseContext = getBaseContext();
 
         monthfrag = new MonthViewFragment();
+        viewclassfrag = new ViewCalssesFragment();
         dayfrag = new DayViewFragment();
         aboutfrag = new AboutFragment();
         assignmentfrag = new AssignmentFragment();
@@ -244,7 +247,7 @@ public class Main extends Activity
                 break;
             case 4:
                 mTitle = "My Classes";
-                ft.replace(R.id.container,classfrag,classesID);
+                ft.replace(R.id.container,viewclassfrag,viewclassID);
 
                 break;
             case 5:

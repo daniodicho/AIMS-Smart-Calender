@@ -1,0 +1,25 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        android:background="@color/white"
+
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="csun.aims.aimssmartcalendar.ViewCalssesFragment"
+        android:weightSum="1"
+        android:id="@+id/viewClasses">
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Class"
+        android:id="@+id/newClass"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout></ScrollView>
