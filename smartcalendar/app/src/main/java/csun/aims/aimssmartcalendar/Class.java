@@ -1,7 +1,7 @@
 package csun.aims.aimssmartcalendar;
 
 public class Class {
-/*
+
     String name ;
     int difficulty;
     String startTime;
@@ -22,7 +22,7 @@ public class Class {
         requiresReading = false;
     }
     
-    public Class(String n, int d, String sT, double tL, int u, int cG, Assignments aS, boolean rR) {
+    public Class(String n, int d, String sT, double tL, int u, int cG, Assignment aS, boolean rR) {
         name = n;
         difficulty = d;
         startTime = sT;
@@ -64,7 +64,7 @@ public class Class {
     }
     
     public void setTimeLength(double tL) {
-        this.timeLength = d;
+        this.timeLength = tL;
     }
 
     public int getUnits() {
@@ -98,5 +98,5 @@ public class Class {
     public void setRequiresReading(boolean rR) {
         this.requiresReading = rR;
     }
-*/
+
 }
