@@ -8,7 +8,7 @@ public class Class {
     double timeLength;
     int units;
     int currentGrade ;
-    Assignment assignments ;
+    //Assignment assignments ;
     boolean requiresReading ;
 
     public Class() {
@@ -18,11 +18,11 @@ public class Class {
         timeLength = 0;
         units = 0;
         currentGrade = 0;
-        assignments = null;
+        //assignments = null;
         requiresReading = false;
     }
     
-    public Class(String n, int d, String sT, double tL, int u, int cG, Assignment aS, boolean rR) {
+    /*public Class(String n, int d, String sT, double tL, int u, int cG, Assignment aS, boolean rR) {
         name = n;
         difficulty = d;
         startTime = sT;
@@ -97,6 +97,6 @@ public class Class {
     
     public void setRequiresReading(boolean rR) {
         this.requiresReading = rR;
-    }
+    }*/
 
 }

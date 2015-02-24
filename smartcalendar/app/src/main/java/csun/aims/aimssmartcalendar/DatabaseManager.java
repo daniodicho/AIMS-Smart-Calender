@@ -2,9 +2,14 @@ package csun.aims.aimssmartcalendar;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -92,23 +97,25 @@ public class DatabaseManager{
 //            return db.delete(ASSIGNMENTS_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
 //        }
 //
-//        //---retrieves all the records---
-//        public Cursor getAllAssignments() {
-//            return db.query(ASSIGNMENTS_TABLE, new String[]{KEY_ROWID, KEY_TITLE,
-//                    KEY_DUEDATE,KEY_DUETIME, KEY_COURSE, KEY_TYPE}, null, null, null, null, null);
-//        }
+        //---retrieves all the records---
+        public Cursor getAllAssignments() {
+            SQLiteDatabase db = this.getReadableDatabase();
+            return db.query(ASSIGNMENTS_TABLE, new String[]{KEY_ROWID, KEY_TITLE,
+                    KEY_DUEDATE,KEY_DUETIME, KEY_COURSE, KEY_TYPE}, null, null, null, null, null);
+        }
 //
 //        //---retrieves a particular record---
-//        public Cursor getAssignment(long rowId) throws SQLException {
-//            Cursor mCursor =
-//                    db.query(true, ASSIGNMENTS_TABLE, new String[]{KEY_ROWID,
-//                                    KEY_TITLE, KEY_DUEDATE,KEY_DUETIME, KEY_COURSE, KEY_TYPE},
-//                            KEY_ROWID + "=" + rowId, null, null, null, null, null);
-//            if (mCursor != null) {
-//                mCursor.moveToFirst();
-//            }
-//            return mCursor;
-//        }
+        public Cursor getAssignment(long rowId) throws SQLException {
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor mCursor =
+                    db.query(true, ASSIGNMENTS_TABLE, new String[]{KEY_ROWID,
+                                    KEY_TITLE, KEY_DUEDATE,KEY_DUETIME, KEY_COURSE, KEY_TYPE},
+                            KEY_ROWID + "=" + rowId, null, null, null, null, null);
+            if (mCursor != null) {
+                mCursor.moveToFirst();
+            }
+            return mCursor;
+        }
 //
 //        //---updates a record---
 //        public boolean updateAssignment(long rowId, String title, String duedate, String time, String course, String notes) {
@@ -121,6 +128,32 @@ public class DatabaseManager{
 //            return db.update(ASSIGNMENTS_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
 //        }
     }
+
+    //---retrieves all the records---
+    // gets the first string from each row.
+    public List<String> getAllAssignments() {
+        Cursor c = DBhelper.getAllAssignments();
+        List<String> s = new LinkedList<String>();
+        if(c.moveToFirst()) {
+            do {
+                s.add(c.getString(1));
+            } while (c.moveToNext());
+        }
+        return s;
+    }
+
+    //TODO: this needs to be changed so that it gets the right assignment
+    public Cursor getAssignment(long rowId){
+        SQLiteDatabase db = DBhelper.getReadableDatabase();
+            Cursor mCursor =
+                    db.query(true, DBhelper.ASSIGNMENTS_TABLE, new String[]{DBhelper.KEY_ROWID,
+                                    DBhelper.KEY_TITLE, DBhelper.KEY_DUEDATE,DBhelper.KEY_DUETIME, DBhelper.KEY_COURSE, DBhelper.KEY_TYPE},
+                            DBhelper.KEY_ROWID + "=" + rowId, null, null, null, null, null);
+            if (mCursor != null) {
+                mCursor.moveToFirst();
+            }
+            return mCursor;
+        }
 
     //---insert a record into the database---
     public long insertAssignment(String title, String duedate, String time, String course, boolean notes, String type) {

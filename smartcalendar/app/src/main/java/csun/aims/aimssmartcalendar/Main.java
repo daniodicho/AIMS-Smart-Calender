@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -20,8 +21,10 @@ import android.widget.Toast;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 
+import java.sql.SQLDataException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -45,6 +48,7 @@ public class Main extends Activity
     private static final int TYPE_WEEK_VIEW = 3;
     private int mWeekViewType = TYPE_DAY_VIEW;
     WeekView mWeekView;
+    DatabaseManager data;
 
     public static FragmentManager fm;
     MonthViewFragment monthfrag;
@@ -61,6 +65,7 @@ public class Main extends Activity
     String assignmentID;
     String classesID;
     String viewclassID;
+    List<String> test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +90,17 @@ public class Main extends Activity
         // Get a reference for the week view in the layout.
         mWeekView = (WeekView) findViewById(R.id.weekView);
         mWeekView.setNumberOfVisibleDays(1);
+
+
+        //This inserts an assigment into the database. then pulls all the assignments and
+        //stores them in a list. It also sets the title to one of the dayview times to one
+        //of the queries from the database
+
+        data = new DatabaseManager(this);
+        long id = data.insertAssignment("Test", "05/15/1992", "3pm", "comp322", true, "AIMS");
+        test = data.getAllAssignments();
+
+
         // Set an action when any event is clicked.
         /*mWeekView.setOnEventClickListener(this);//new WeekView.EventClickListener() {
             @Override
@@ -137,6 +153,7 @@ public class Main extends Activity
                 endTime.set(Calendar.HOUR_OF_DAY, 5);
                 endTime.set(Calendar.MINUTE, 0);
                 event = new WeekViewEvent(10, getEventTitle(startTime), startTime, endTime);
+                event.setName(test.get(0));
                 event.setColor(getResources().getColor(R.color.green));
                 events.add(event);
 
