@@ -6,11 +6,9 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,10 +19,8 @@ import android.widget.Toast;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 
-import java.sql.SQLDataException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -97,7 +93,7 @@ public class Main extends Activity
         //of the queries from the database
 
         data = new DatabaseManager(this);
-        long id = data.insertAssignment("Test", "05/15/1992", "3pm", "comp322", true, "AIMS");
+        long id = data.insertAssignment("Test", "05/15/1992", "3pm", "comp322", true, 0);
         test = data.getAllAssignments();
 
 
