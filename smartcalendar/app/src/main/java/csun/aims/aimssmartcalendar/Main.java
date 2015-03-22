@@ -93,7 +93,6 @@ public class Main extends Activity
         //of the queries from the database
 
         data = new DatabaseManager(this);
-        long id = data.insertAssignment("Test", "05/15/1992", "3pm", "comp322", true, 0);
         test = data.getAllAssignments();
 
 
@@ -148,10 +147,10 @@ public class Main extends Activity
                 endTime = (Calendar) startTime.clone();
                 endTime.set(Calendar.HOUR_OF_DAY, 5);
                 endTime.set(Calendar.MINUTE, 0);
-                event = new WeekViewEvent(10, getEventTitle(startTime), startTime, endTime);
-                event.setName(test.get(0));
-                event.setColor(getResources().getColor(R.color.green));
-                events.add(event);
+                //event = new WeekViewEvent(10, getEventTitle(startTime), startTime, endTime);
+               // event.setName(test.get(0));
+                //event.setColor(getResources().getColor(R.color.green));
+                //events.add(event);
 
                 startTime = Calendar.getInstance();
                 startTime.set(Calendar.HOUR_OF_DAY, 5);
