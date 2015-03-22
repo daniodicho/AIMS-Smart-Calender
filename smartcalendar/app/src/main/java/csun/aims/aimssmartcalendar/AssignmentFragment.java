@@ -31,7 +31,7 @@ public class AssignmentFragment extends Fragment {
 
         db = new DatabaseManager(getActivity());
 
-        Button add = (Button)v.findViewById(R.id.add);
+        Button add = (Button)v.findViewById(R.id.add_assignment);
 
            add.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -64,11 +64,13 @@ public class AssignmentFragment extends Fragment {
         EditText name = (EditText)getActivity().findViewById(R.id.assignmentName);
         RadioButton hw = (RadioButton)getActivity().findViewById(R.id.homeworkRB);
         RadioButton test = (RadioButton)getActivity().findViewById(R.id.testRB);
-        String type="";
-        if(hw.isChecked())
-            type = "Homework";
-        if(test.isChecked())
-            type = "Test";
+        int type = 0;
+
+            if (hw.isChecked())
+                type = 0;
+            if (test.isChecked())
+                type = 1;
+
         TimePicker tp = (TimePicker)getActivity().findViewById(R.id.timePicker);
         DatePicker dp = (DatePicker)getActivity().findViewById(R.id.datePicker);
 

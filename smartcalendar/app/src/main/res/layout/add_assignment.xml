@@ -94,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD"
-        android:id="@+id/add"
+        android:id="@+id/add_assignment"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
