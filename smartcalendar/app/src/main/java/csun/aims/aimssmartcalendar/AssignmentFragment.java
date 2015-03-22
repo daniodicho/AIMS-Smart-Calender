@@ -27,6 +27,7 @@ public class AssignmentFragment extends Fragment {
     public static final String LOGCAT = "UDB";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        AssignmentFragment context = this;
         View v= inflater.inflate(R.layout.add_assignment, container, false);
 
         db = new DatabaseManager(getActivity());
@@ -101,7 +102,8 @@ public class AssignmentFragment extends Fragment {
 
     public void displayAssignment(Cursor c)
     {
-       Toast.makeText(Main.baseContext,
+       Toast.makeText(this.getActivity().getApplicationContext()
+               ,
                 "id: " + c.getString(0) + "\n" +
                         "Title: " + c.getString(1) + "\n" +
                         "Due Date: " + c.getString(2),

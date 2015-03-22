@@ -2,6 +2,7 @@ package csun.aims.aimssmartcalendar;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,8 +22,8 @@ public class ViewCalssesFragment extends Fragment {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // FragmentManager fm = Main.getFragmentManager();
-                FragmentTransaction ft = Main.fm.beginTransaction();
+                FragmentManager fm = getActivity().getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.container,new ClassesFragment(),classfragID);
                 ft.commit();
             }

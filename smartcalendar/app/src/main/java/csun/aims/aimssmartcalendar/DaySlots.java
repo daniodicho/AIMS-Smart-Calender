@@ -1,3 +1,5 @@
+package csun.aims.aimssmartcalendar;
+
 import java.util.Date;
 
 public class DaySlots {

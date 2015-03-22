@@ -1,8 +1,11 @@
+package csun.aims.aimssmartcalendar;
+
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
-import java.util.Date;
 
-public class Calendar {
+
+public class Cal {
 
 	LinkedList <Routine>routines = new LinkedList<Routine>();
 	LinkedList <Class>classes = new LinkedList<Class>();
@@ -16,7 +19,7 @@ public class Calendar {
 	int sleepTime;
 	
 	
-	Calendar(){
+	Cal(){
 		sleepTime = 7;
 		slots = new DaySlots[14];
 		

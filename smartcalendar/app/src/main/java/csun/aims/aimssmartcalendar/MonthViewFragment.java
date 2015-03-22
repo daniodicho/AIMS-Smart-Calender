@@ -29,8 +29,8 @@ public class MonthViewFragment extends Fragment {
         // sets whether to show the week number.
         calendar.setShowWeekNumber(false);
 
-        // sets the first day of week according to Calendar.
-        // here we set Monday as the first day of the Calendar
+        // sets the first day of week according to Cal.
+        // here we set Monday as the first day of the Cal
         calendar.setFirstDayOfWeek(2);
 
         //The background color for the selected week.
