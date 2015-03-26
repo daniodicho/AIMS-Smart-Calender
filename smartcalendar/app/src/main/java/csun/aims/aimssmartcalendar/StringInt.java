@@ -1,5 +1,3 @@
-package csun.aims.aimssmartcalendar;
-
 public class StringInt{
 		String s;
 		int i;

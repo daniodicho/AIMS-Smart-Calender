@@ -1,9 +1,6 @@
-package csun.aims.aimssmartcalendar;
-
 import java.util.LinkedList;
 
-
-public class Class extends Routine {
+public class Class extends Routine{
 
     
     int difficulty;

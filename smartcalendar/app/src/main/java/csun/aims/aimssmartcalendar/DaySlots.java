@@ -1,9 +1,9 @@
-package csun.aims.aimssmartcalendar;
-
 import java.util.Date;
+import java.util.LinkedList;
 
 public class DaySlots {
 	Date Date;
+	LinkedList <Event> events = new LinkedList<Event>();
 	TimeSlot[] slot;
 	DaySlots(Date d){
 		slot = new TimeSlot[48];
@@ -100,5 +100,40 @@ public class DaySlots {
 				break;
 		}
 		return slot[i].getStart();
+	}
+	
+	public void addEventInPlace(Event e){
+		if(events.isEmpty()){
+			events.add(e);			
+		}
+		else if(events.size()==1){
+			if(e.startTime.compareTo(events.get(0).startTime)<0){
+				events.add(0,e);
+			}
+			else{
+				events.add(e);
+			}
+		}
+		else{
+		for(int i=0;i<events.size()-1;i++){
+			if(e.startTime.compareTo(events.get(i).startTime)<0){
+				events.add(i, e);
+				return;
+			}
+			else if((e.startTime.compareTo(events.get(i).startTime)>0)&&(e.startTime.compareTo(events.get(i+1).startTime)<0)){
+				events.add(i, e);
+				return;
+			}
+		}
+		events.add(e);
+		}
+	}
+	
+	public void printBusyTimes(){
+		System.out.print(getDate()+ ":   ");
+		for(int i=0;i<events.size();i++){
+			System.out.println(events.get(i).getName()+" From "+events.get(i).getStartTime()+" To "+events.get(i).getEndTime()+"	");
+		}
+		System.out.println("");
 	}
 }
