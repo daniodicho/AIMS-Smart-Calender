@@ -1,3 +1,5 @@
+package csun.aims.aimssmartcalendar;
+
 public class Event {
 
 	String name ;

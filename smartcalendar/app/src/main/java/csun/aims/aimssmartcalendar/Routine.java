@@ -1,3 +1,4 @@
+package csun.aims.aimssmartcalendar;
 
 public class Routine extends Event{
     String days;

@@ -1,3 +1,5 @@
+package csun.aims.aimssmartcalendar;
+
 public class TimeSlot {
 	String start;
 	String finish;

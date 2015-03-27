@@ -1,6 +1,8 @@
+package csun.aims.aimssmartcalendar;
+
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
-import java.util.Date;
 
 public class Calendar {
 
@@ -273,7 +275,7 @@ public class Calendar {
 		}*/
 	}
 	
-	StringInt timeShift(int i, String s){ 
+	StringInt timeShift(int i, String s){
 		int extra = 0;
 		String first2 = s.substring(0, 2);
 		int n = Integer.parseInt(first2);

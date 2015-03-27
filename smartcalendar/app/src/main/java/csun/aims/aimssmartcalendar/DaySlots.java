@@ -1,3 +1,4 @@
+package csun.aims.aimssmartcalendar;
 import java.util.Date;
 import java.util.LinkedList;
 

@@ -1,4 +1,4 @@
-//package csun.aims.aimssmartcalendar;
+package csun.aims.aimssmartcalendar;//package csun.aims.aimssmartcalendar;
 
 import java.text.DateFormat;
 import java.text.ParseException;
