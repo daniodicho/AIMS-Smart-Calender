@@ -1,10 +1,8 @@
 package csun.aims.aimssmartcalendar;//package csun.aims.aimssmartcalendar;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.Calendar;
+import java.util.Date;
 
 public class Assignment {
 
@@ -21,9 +19,10 @@ public class Assignment {
 	Boolean Finished;
 	double Grade ;
 	
-	Assignment(String newName, Class newClass, long newDueDate,  int newType ){
+	Assignment(String newName, Class newClass, long newDueDate,  int newType, double gr ){
 		Name = newName;
 		DueDateandTime = newDueDate;
+        Grade = gr;
 		//DueTime = newDueTime;
 		Type = newType;
 		Course = newClass;

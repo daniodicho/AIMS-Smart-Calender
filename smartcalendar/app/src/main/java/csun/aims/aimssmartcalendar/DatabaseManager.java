@@ -43,13 +43,14 @@ public class DatabaseManager{
         public static final String KEY_DAYS = "Days";
         public static final String KEY_UNITS = "Units";
         public static final String KEY_DIFFICULTY = "Difficulty";
+        public static final String KEY_GRADE = "Grade";
 
         private static final String DATABASE_NAME = "StudentData";
         private static final String ASSIGNMENTS_TABLE = "Assignments";
         private static final String CLASSES_TABLE = "Classes";
-        private static final int DATABASE_VERSION = 1;
+        private static final int DATABASE_VERSION = 2;
         private Context context;
-        private static final String DATABASE_CREATE = "CREATE TABLE "+ASSIGNMENTS_TABLE+" ("+KEY_ROWID+" integer primary key autoincrement, "+KEY_TITLE+" VARCHAR(255) not null, "+KEY_DUEDATE+" VARCHAR(255), "+KEY_DUETIME+" VARCHAR(255), "+KEY_COURSE+" VARCHAR(255),  "+KEY_DONE+" BOOL, "+KEY_TYPE+" INTEGER );";
+        private static final String DATABASE_CREATE = "CREATE TABLE "+ASSIGNMENTS_TABLE+" ("+KEY_ROWID+" integer primary key autoincrement, "+KEY_TITLE+" VARCHAR(255) not null, "+KEY_DUEDATE+" VARCHAR(255), "+KEY_DUETIME+" VARCHAR(255), "+KEY_COURSE+" VARCHAR(255),  "+KEY_DONE+" BOOL, "+KEY_TYPE+" INTEGER, "+KEY_GRADE+" DOUBLE);";
         private static final String DATABASE_CREATE2 = "CREATE TABLE "+CLASSES_TABLE+" ("+KEY_ROWID+" integer primary key autoincrement, "+KEY_TITLE+" VARCHAR(255) not null, "+KEY_STARTTIME+" VARCHAR(255), "+KEY_ENDTIME+" VARCHAR(255), "+KEY_DIFFICULTY+" integer,  "+KEY_UNITS+" integer, "+KEY_DAYS+" VARCHAR(255), "+KEY_READING+" BOOL );";
 
         private static final String DATABASE_DROP = "DROP TABLE IF EXISTS " +ASSIGNMENTS_TABLE;
@@ -219,7 +220,7 @@ public class DatabaseManager{
 
     }
     //---insert a record into the database---
-    public long insertAssignment(String title, String duedate, String time, String course, boolean notes, int type) {
+    public long insertAssignment(String title, String duedate, String time, String course, boolean notes, int type, double grade) {
         SQLiteDatabase db = DBhelper.getWritableDatabase();
         ContentValues initialValues = new ContentValues();
         initialValues.put(DBhelper.KEY_TITLE, title);
@@ -228,6 +229,7 @@ public class DatabaseManager{
         initialValues.put(DBhelper.KEY_COURSE, course);
         initialValues.put(DBhelper.KEY_DONE, notes);
         initialValues.put(DBhelper.KEY_TYPE, type);
+        initialValues.put(DBhelper.KEY_GRADE, grade);
         long id = db.insert(DBhelper.ASSIGNMENTS_TABLE, null, initialValues);
         return id;
     }

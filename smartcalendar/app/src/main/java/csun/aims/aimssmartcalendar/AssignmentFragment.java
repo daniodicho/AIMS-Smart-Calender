@@ -78,7 +78,8 @@ public class AssignmentFragment extends Fragment {
         String strDate = dp.getYear() + "-" + (dp.getMonth() + 1) + "-" + dp.getDayOfMonth();
         String strTime = tp.getCurrentHour() + ":" + tp.getCurrentMinute();
 
-        long id = db.insertAssignment(name.getText().toString(), strDate, strTime, "Math", false, type);
+        double grade = 76.0;  //test value
+        long id = db.insertAssignment(name.getText().toString(), strDate, strTime, "Math", false, type, grade);
         if(id<0){
             Log.d(LOGCAT, "ROWS NOT INSERTED");
         }
