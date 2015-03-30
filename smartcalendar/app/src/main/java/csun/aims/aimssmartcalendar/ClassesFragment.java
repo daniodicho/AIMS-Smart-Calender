@@ -88,6 +88,8 @@ public class ClassesFragment extends Fragment {
             reading = true;
         }
 
+        String days = "MW";
+
 
         TimePicker start = (TimePicker)getActivity().findViewById(R.id.classStartTime);
         TimePicker end = (TimePicker)getActivity().findViewById(R.id.classEndTime);
@@ -95,7 +97,7 @@ public class ClassesFragment extends Fragment {
         String strstartTime = start.getCurrentHour() + ":" + start.getCurrentMinute();
         String strendTime = end.getCurrentHour() + ":" + end.getCurrentMinute();
 
-        long id = db.insertClass(className.getText().toString(), strstartTime, strendTime, difficulty, units, reading);
+        long id = db.insertClass(className.getText().toString(), strstartTime, strendTime, difficulty, units, days, reading);
         if(id<0){
             Log.d(LOGCAT, "ROWS NOT INSERTED");
             Toast.makeText(getActivity().getApplicationContext(),"Something went wrong", Toast.LENGTH_LONG).show();
