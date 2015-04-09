@@ -1,4 +1,5 @@
 package csun.aims.aimssmartcalendar;
+
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -136,5 +137,34 @@ public class DaySlots {
 			System.out.println(events.get(i).getName()+" From "+events.get(i).getStartTime()+" To "+events.get(i).getEndTime()+"	");
 		}
 		System.out.println("");
+	}
+	
+	int getTotalFreeHours(){
+		int count=0;
+		for(int i=0;i<slot.length;i++){
+			if(slot[i].isFree())
+				count++;
+		}
+		return count;
+	}
+	
+	StringInt getMaxConsecutive(){
+		
+		int count=0;
+		int max =0;
+		String st=null;
+		for(int i=0;i<slot.length;i++){
+			while((i<48)&&(slot[i].isFree())){
+				count++;
+				i++;
+			}
+			if(count>max){
+				max=count;
+				st=slot[i-max].getStart();
+			}
+			count =0;
+		}
+		StringInt si = new StringInt(st,max);
+		return si;
 	}
 }

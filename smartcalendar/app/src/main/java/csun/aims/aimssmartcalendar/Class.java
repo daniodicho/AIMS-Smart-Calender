@@ -1,7 +1,8 @@
 package csun.aims.aimssmartcalendar;
+
 import java.util.LinkedList;
 
-public class Class extends Routine {
+public class Class extends Routine{
 
     
     int difficulty;
@@ -10,14 +11,12 @@ public class Class extends Routine {
     double currentGrade ;
     LinkedList <Assignment> assignments;
     boolean requiresReading ;
-    String days;
 
     public Class() {
         name = null;
         difficulty = 0;
         units = 0;
         currentGrade = 0;
-        days = null;
         requiresReading = false;
         assignments = new LinkedList<Assignment>();
     }
